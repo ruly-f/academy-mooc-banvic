@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: erp
+    schema: banvic
+    tables:
+      - name: agencias
+        description: TBD.
+      - name: clientes
+        description: TBD.
+      - name: colaboradores
+        description: TBD.
+      - name: colaborador_agencia
+        description: TBD.
+      - name: contas
+        description: TBD.
+      - name: propostas_credito
+        description: TBD.
+      - name: transacoes
+        description: TBD.
