@@ -37,4 +37,4 @@ with
     )
 
 select *
-from transacoes
+from joined

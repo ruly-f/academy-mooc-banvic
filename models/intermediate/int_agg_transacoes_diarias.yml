@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: int_agg_transacoes_diarias
+    columns:
+      - name: sk_agg_transacoes_diarias
+        data_tests:
+            - unique 
+            - not_null
+            
