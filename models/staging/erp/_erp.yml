@@ -5,16 +5,16 @@ sources:
     schema: banvic
     tables:
       - name: agencias
-        description: TBD.
+        description: Tabela que contém informações sobre as agências, como nome, endereço, cidade, estado, tipo de agência e data de abertura.
       - name: clientes
-        description: TBD.
+        description: Tabela que armazena dados dos clientes, incluindo nome, e-mail, tipo de cliente, CPF/CNPJ, data de nascimento e endereço.
       - name: colaboradores
-        description: TBD.
+        description: Tabela que contém dados dos colaboradores, como nome, e-mail, CPF, data de nascimento e endereço.
       - name: colaborador_agencia
-        description: TBD.
+        description: Tabela de relacionamento entre colaboradores e agências, indicando quais colaboradores estão associados a quais agências.
       - name: contas
-        description: TBD.
+        description: Tabela que registra as informações das contas bancárias dos clientes, incluindo número da conta, agência, saldo, tipo de conta e data de abertura.
       - name: propostas_credito
-        description: TBD.
+        description: Tabela que armazena as propostas de crédito feitas aos clientes, incluindo dados como taxa de juros, valor da proposta, valor financiado, parcelas e status da proposta.
       - name: transacoes
-        description: TBD.
+        description: Tabela que registra as transações realizadas nas contas dos clientes, incluindo tipo da transação, valor e data da transação.

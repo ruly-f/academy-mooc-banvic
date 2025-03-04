@@ -39,6 +39,8 @@ models:
   banvic_demo:
     +materialized: table
     intermediate:
+      +schema: int
     marts:
+      +schema: marts
     staging:
-
+      +schema: stg
