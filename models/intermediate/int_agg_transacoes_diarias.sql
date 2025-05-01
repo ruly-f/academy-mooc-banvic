@@ -40,6 +40,7 @@ with
             , range_de_transacoes.fk_cliente
             , range_de_transacoes.fk_agencia
             , range_de_transacoes.fk_colaborador
+            , dim_datas.pk_Data as fk_data
             , dim_datas.data_completa
         from range_de_transacoes
         cross join dim_datas
@@ -67,6 +68,7 @@ with
             , gerando_todos_os_dias.fk_cliente
             , gerando_todos_os_dias.fk_agencia
             , gerando_todos_os_dias.fk_colaborador
+            , gerando_todos_os_dias.fk_data
             , gerando_todos_os_dias.data_completa
             , coalesce(aggregado_transacoes.tipo_trasacao, 'Sem Movimento') as tipo_trasacao
             , coalesce(aggregado_transacoes.transacao_total, 0.0) as transacao_total
@@ -80,7 +82,7 @@ with
         select
             {{ dbt_utils.generate_surrogate_key([
                 'fk_conta'
-                , 'data_completa'
+                , 'fk_data'
                 , 'tipo_trasacao'
             ]) }} as sk_agg_transacoes_diarias
             , *

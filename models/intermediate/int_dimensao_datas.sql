@@ -11,7 +11,7 @@ with
 
     , criar_colunas as (
         select
-            date_day as pk_data
+            row_number() over(order by date_day asc) as pk_data
             , extract(year from date_day) as ano
             , extract(month from date_day) as mes
             , extract(day from date_day) as dia

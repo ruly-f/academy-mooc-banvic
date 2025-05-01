@@ -9,6 +9,7 @@ with
             cod_transacao as pk_transacao
             , num_conta as fk_conta
             , cod_transacao as numero_transacao
+            , cast(data_transacao as date) data_transacao
             , cast(data_transacao as timestamp) ts_transacao
             , nome_transacao
             , case 
