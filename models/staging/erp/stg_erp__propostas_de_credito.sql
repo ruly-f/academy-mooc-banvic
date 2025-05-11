@@ -4,12 +4,12 @@ with
         from {{ source('erp', 'propostas_credito') }}
     )
     
-    , renamed as (
+    , renomeado as (
         select
-            cod_proposta as pk_proposta
-            , cod_cliente as fk_cliente
-            , cod_colaborador as fk_colaborador
-            , cod_proposta as numero_proposta
+            cast(cod_proposta as int) as pk_proposta
+            , cast(cod_cliente as int) as fk_cliente
+            , cast(cod_colaborador as int) as fk_colaborador
+            , cast(cod_proposta as int) as numero_proposta
             , cast(data_entrada_proposta as timestamp) as ts_entrada_proposta
             , cast(taxa_juros_mensal as numeric(12,5)) as taxa_juros_mensal 
             , cast(valor_proposta as numeric(28,2)) as valor_proposta 
@@ -23,4 +23,4 @@ with
     )
 
 select *
-from renamed
+from renomeado

@@ -3,9 +3,10 @@ with
         select *
         from {{ source('erp', 'clientes') }}
     )
-    , renamed as (
+    
+    , renomeado_transformacao as (
         select
-            cod_cliente as pk_cliente
+            cast(cod_cliente as int) as pk_cliente
             , primeiro_nome || ' ' || ultimo_nome as nome_cliente
             , email as email_cliente
             , tipo_cliente
@@ -21,4 +22,4 @@ with
     )
 
 select *
-from renamed
+from renomeado_transformacao
