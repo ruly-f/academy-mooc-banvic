@@ -3,12 +3,13 @@ with
         select *
         from {{ source('erp', 'colaborador_agencia') }}
     )
-    , renamed as (
+    
+    , renomeado as (
         select
-            cod_colaborador as fk_colaborador
-            , cod_agencia as fk_agencia
+            cast(cod_colaborador as int) as fk_colaborador
+            , cast(cod_agencia as int) as fk_agencia
         from fonte_colaborador_agencia
     )
 
 select *
-from renamed
+from renomeado

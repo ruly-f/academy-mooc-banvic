@@ -6,6 +6,11 @@ sources:
     tables:
       - name: agencias
         description: Tabela que contém informações sobre as agências, como nome, endereço, cidade, estado, tipo de agência e data de abertura.
+        columns:
+          - name: cod_agencia
+            data_tests:
+              - unique 
+              - not_null
       - name: clientes
         description: Tabela que armazena dados dos clientes, incluindo nome, e-mail, tipo de cliente, CPF/CNPJ, data de nascimento e endereço.
       - name: colaboradores

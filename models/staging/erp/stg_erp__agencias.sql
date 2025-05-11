@@ -3,19 +3,18 @@ with
         select *
         from {{ source('erp', 'agencias') }}
     )
-    
-    , renamed as (
+
+    , renomeado as (
         select
-            cod_agencia as pk_agencia
-            , cod_agencia as numero_agencia
-            , nome as nome_agencia
-            , endereco as endereco_agencia
-            , cidade as cidade_agencia
-            , uf as uf_agencia
-            , cast(data_abertura as date) as data_abertura_agencia
-            , tipo_agencia
+            cast(COD_AGENCIA as int) as pk_agencia
+            , cast(NOME as varchar) as nome_agencia
+            , cast(ENDERECO as varchar) as endereco_agencia
+            , cast(CIDADE as varchar) as cidade_agencia
+            , cast(UF as varchar) as uf_agencia
+            , cast(DATA_ABERTURA as date) as data_de_abertura
+            , cast(TIPO_AGENCIA as varchar) as tipo_agencia
         from fonte_agencias
     )
 
 select *
-from renamed
+from renomeado

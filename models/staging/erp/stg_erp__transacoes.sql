@@ -4,11 +4,11 @@ with
         from {{ source('erp', 'transacoes') }}
     )
     
-    , renamed as (
+    , renomeado as (
         select
-            cod_transacao as pk_transacao
-            , num_conta as fk_conta
-            , cod_transacao as numero_transacao
+            cast(cod_transacao as int) as pk_transacao
+            , cast(num_conta as int) as fk_conta
+            , cast(cod_transacao as int) as numero_transacao
             , cast(data_transacao as date) data_transacao
             , cast(data_transacao as timestamp) ts_transacao
             , nome_transacao
@@ -22,4 +22,4 @@ with
     )
 
 select *
-from renamed
+from renomeado

@@ -4,9 +4,9 @@ with
         from {{ source('erp', 'colaboradores') }}
     )
     
-    , renamed as (
+    , renomeado_transformacao as (
         select
-            cod_colaborador as pk_colaborador
+            cast(cod_colaborador as int) as pk_colaborador
             , primeiro_nome || ' ' || ultimo_nome as nome_colaborador
             , email as email_colaborador
             , regexp_replace(cpf, '[^a-zA-Z0-9]', '') as cpf_colaborador
@@ -20,4 +20,4 @@ with
     )
 
 select *
-from renamed
+from renomeado_transformacao
